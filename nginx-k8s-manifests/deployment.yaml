@@ -1,21 +1,21 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: hello-world-nginx
-  labels:
-    app: hello-world-nginx
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: hello-world-nginx
-  template:
-    metadata:
-      labels:
-        app: hello-world-nginx
-    spec:
-      containers:
-      - name: hello-world-nginx
-        image: gnachev/nginx-sap-test-project:replaceImageTag
-        ports:
-        - containerPort: 8080
+apiVersion:1 apps/v1
+kind:1 Deployment
+metadata:1
+  name:1 hello-world-nginx
+  labels:1
+    app:1 hello-world-nginx
+spec:1
+  replicas:1 2
+  selector:1
+    matchLabels:1
+      app:1 hello-world-nginx
+  template:1
+    metadata:1
+      labels:1
+        app:1 hello-world-nginx
+    spec:1
+      containers:1
+      - name:1 hello-world-nginx
+        image:1 gnachev/nginx-sap-test-project:1replaceImageTag
+        ports:1
+        - containerPort:1 8080
