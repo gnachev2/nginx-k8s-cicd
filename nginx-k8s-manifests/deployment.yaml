@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: hello-world-nginx
-        image: gnachev/nginx-sap-test-project:7
+        image: gnachev/nginx-sap-test-project:1
         ports:
         - containerPort: 80
