@@ -1,21 +1,21 @@
-apiVersion:21 apps/v1
-kind:21 Deployment
-metadata:21
-  name:21 hello-world-nginx
-  labels:21
-    app:21 hello-world-nginx
-spec:21
-  replicas:21 2
-  selector:21
-    matchLabels:21
-      app:21 hello-world-nginx
-  template:21
-    metadata:21
-      labels:21
-        app:21 hello-world-nginx
-    spec:21
-      containers:21
-      - name:21 hello-world-nginx
-        image:21 gnachev/nginx-sap-test-project:21replaceImageTag
-        ports:21
-        - containerPort:21 8080
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-nginx
+  labels:
+    app: hello-world-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world-nginx
+  template:
+    metadata:
+      labels:
+        app: hello-world-nginx
+    spec:
+      containers:
+      - name: hello-world-nginx
+        image: gnachev/nginx-sap-test-project:replaceImageTag
+        ports:
+        - containerPort: 8080
