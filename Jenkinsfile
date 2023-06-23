@@ -40,6 +40,10 @@ pipeline {
                 git config user.name "Georgi Nachev"
                 BUILD_NUMBER=${BUILD_NUMBER}
 		LATEST_TAG=$(grep "image:" nginx-k8s-manifests/deployment.yaml | cut -d":" -f3)
+		sed -i "s/:${LATEST_TAG}/:${BUILD_NUMBER}/g" nginx-k8s-manifests/deployment.yaml
+		git add nginx-k8s-manifests/deployment.yaml
+		git commit -am "Update deployment image from version ${LATEST_TAG} to version ${BUILD_NUMBER}"
+		git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
             '''
         }
       }
