@@ -31,7 +31,7 @@ pipeline {
       environment {
         GIT_REPO_NAME = "nginx-k8s-cicd"
         GIT_USER_NAME = "gnachev2"
-        LATEST_TAG = sh(script: 'grep "image:" nginx-k8s-manifests/deployment.yaml | cut -d':' -f3') && echo "COMPLETE-(${LATEST_TAG})"
+        #LATEST_TAG = sh(script: 'grep "image:" nginx-k8s-manifests/deployment.yaml | cut -d':' -f3', returnStdout: true) && echo "COMPLETE-(${LATEST_TAG})"
       }
       steps {
         withCredentials([string(credentialsId: 'github-credentials', variable: 'GITHUB_TOKEN')]) {
@@ -39,11 +39,11 @@ pipeline {
                 git config user.email "na4ev.bg@gmail.com" && echo "COMPLETE-(git-config-mail)"
                 git config user.name "Georgi Nachev" && echo "COMPLETE-(git-config-username)"
                 BUILD_NUMBER=${BUILD_NUMBER} && echo "COMPLETE-(BUILD_NUMBER)"
-		LATEST_TAG = sh(script: 'grep "image:" nginx-k8s-manifests/deployment.yaml | cut -d':' -f3') && echo "COMPLETE-(${LATEST_TAG})"
-     #           sed -i "s/:${LATEST_TAG}/:${BUILD_NUMBER}/g" nginx-k8s-manifests/deployment.yaml && echo "COMPLETE-(sed)"
-     #           git add nginx-k8s-manifests/deployment.yaml && echo "COMPLETE-(git-add)"
-     #           git commit -am "Update deployment image to version ${BUILD_NUMBER}" && echo "COMPLETE-(git-comit)"
-     #           git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main && echo "COMPLETE-(git-push)"
+		LATEST_TAG = sh(script: '/bin/bash -c grep "image:" nginx-k8s-manifests/deployment.yaml | cut -d':' -f3', returnStdout: true) && echo "COMPLETE-(${LATEST_TAG})"
+               # sed -i "s/:${LATEST_TAG}/:${BUILD_NUMBER}/g" nginx-k8s-manifests/deployment.yaml && echo "COMPLETE-(sed)"
+               # git add nginx-k8s-manifests/deployment.yaml && echo "COMPLETE-(git-add)"
+               # git commit -am "Update deployment image to version ${BUILD_NUMBER}" && echo "COMPLETE-(git-comit)"
+               # git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main && echo "COMPLETE-(git-push)"
             '''
         }
       }
