@@ -35,10 +35,11 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'github-credentials', variable: 'GITHUB_TOKEN')]) {
             sh '''
+		#!/bin/bash
                 git config user.email "na4ev.bg@gmail.com" && echo "COMPLETE-(git-config-mail)"
                 git config user.name "Georgi Nachev" && echo "COMPLETE-(git-config-username)"
                 BUILD_NUMBER=${BUILD_NUMBER} && echo "COMPLETE-(BUILD_NUMBER)"
-		LATEST_TAG = sh(script: '/bin/bash -c grep "image:" nginx-k8s-manifests/deployment.yaml | cut -d':' -f3', returnStdout: true) && echo "COMPLETE-(${LATEST_TAG})"
+		LATEST_TAG = $(grep "image:" nginx-k8s-manifests/deployment.yaml | cut -d":" -f3) && echo "COMPLETE-(${LATEST_TAG})"
             '''
         }
       }
