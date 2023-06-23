@@ -39,7 +39,7 @@ pipeline {
                 git config user.email "na4ev.bg@gmail.com"
                 git config user.name "Georgi Nachev"
                 BUILD_NUMBER=${BUILD_NUMBER}
-		LATEST_TAG = $(grep "image:" nginx-k8s-manifests/deployment.yaml | cut -d":" -f3)
+		LATEST_TAG=$(grep "image:" nginx-k8s-manifests/deployment.yaml | cut -d":" -f3)
             '''
         }
       }
