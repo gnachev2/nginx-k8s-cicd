@@ -18,4 +18,4 @@ spec:
       - name: hello-world-nginx
         image: gnachev/nginx-sap-test-project:7
         ports:
-        - containerPort: 8080
+        - containerPort: 80
