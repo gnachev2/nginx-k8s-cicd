@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: hello-world-nginx
-        image: gnachev/nginx-sap-test-project:replaceImageTag
+        image: gnachev/nginx-sap-test-project:5
         ports:
         - containerPort: 8080
