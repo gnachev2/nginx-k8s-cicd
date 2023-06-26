@@ -3,9 +3,13 @@ kind: Ingress
 metadata: 
   name: nginx-ingress 
 spec: 
-  ingressClassName: nginx 
+  tls:
+    - secretName: nginx-secret
+      hosts:
+        - hello-world-example.info
+  ingressClassName: nginx
   rules: 
-    - host: hello-world.info
+    - host: hello-world-example.info 
       http: 
         paths: 
           - backend: 
