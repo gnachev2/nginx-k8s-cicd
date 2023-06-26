@@ -16,21 +16,14 @@ spec:
     spec:
       containers:
       - name: nginx-app
-        image: gnachev/nginx-sap-test-project:1
+        image: gnachev/nginx-sap-test-project:TAG
         livenessProbe:
           exec:
             command:
             - /bin/sh
             - -c
             - "[ -f /run/nginx.pid ] && ps -A | grep nginx"
-          initialDelaySeconds: 10
+          initialDelaySeconds: 5 
           periodSeconds: 5
-        readinessProbe:
-          httpGet:
-            scheme: HTTP
-            path: /index.html
-            port: 80
-          initialDelaySeconds: 10
-          periodSeconds: 5          
         ports:
         - containerPort: 80
