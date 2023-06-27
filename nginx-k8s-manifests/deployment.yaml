@@ -22,7 +22,7 @@ spec:
             command:
             - /bin/sh
             - -c
-            - "[ -f /run/nginx.pid ] && ps -A | grep nginx"
+            - [ -f /run/nginx.pid ]
           initialDelaySeconds: 5
           periodSeconds: 5        
         readinessProbe:
