@@ -1,7 +1,8 @@
 apiVersion: networking.k8s.io/v1 
 kind: Ingress 
 metadata: 
-  name: nginx-ingress 
+  name: nginx-ingress
+  namespace: sap-cicd-lab
 spec: 
   tls:
     - secretName: nginx-secret
