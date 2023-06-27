@@ -32,8 +32,15 @@ spec:
             port: 80
             scheme: HTTP
           initialDelaySeconds: 10
-          periodSeconds: 5
+          periodSeconds: 30
           successThreshold: 1
           timeoutSeconds: 1        
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: 256m
+            memory: 128Mi
+          requests:
+            cpu: 128m
+            memory: 96Mi
