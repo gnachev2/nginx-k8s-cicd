@@ -1,6 +1,6 @@
-# NGINX-Hello-World-CICD
+# CICD-Project
 
-This is a custom CICD project, for automated build and deployment of a simple nginx web app on kubernetes.
+This is a custom CICD project for automated build and deployment of a simple nginx web app on kubernetes.
 
 ## Prerequisites and dependencies:
 
