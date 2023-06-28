@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nginx-app
-        image: gnachev/nginx-sap-test-project:1
+        image: gnachev/nginx-sap-test-project:TAG
         livenessProbe:
           exec:
             command:
