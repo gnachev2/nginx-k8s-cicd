@@ -3,6 +3,7 @@ server {
     listen [::]:80 default_server;
     
     root /usr/share/nginx/html;
+    access_log   /var/log/nginx/access.log  combined;
     index index.html index.htm;
 
     server_name _;
